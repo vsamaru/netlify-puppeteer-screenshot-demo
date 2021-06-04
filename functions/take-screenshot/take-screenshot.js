@@ -24,7 +24,7 @@ exports.handler = async (event, context) => {
     const screenshot = await page.screenshot({ encoding: "binary", fullPage: true });
 
     await browser.close();
-  console.warn(Buffer.from(screenshot).toString('base64'))
+  console.N(Buffer.from(screenshot).toString('base64'))
     return {
         statusCode: 200,
         body: JSON.stringify({ 
