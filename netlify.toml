@@ -2,3 +2,8 @@
 [build]
   publish = "public/"
   functions = "functions/"
+  
+[[redirects]]
+  from = "/*"
+  to = ".netlify/functions/take-screenshot"
+  status = 200
