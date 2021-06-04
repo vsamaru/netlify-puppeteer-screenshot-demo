@@ -5,5 +5,5 @@
   
 [[redirects]]
   from = "/*"
-  to = ".netlify/functions/take-screenshot"
+  to = "./functions/take-screenshot"
   status = 200
