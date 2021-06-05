@@ -3,7 +3,7 @@
   publish = "public/"
   functions = "functions/"
   
-[[redirects]]
-  from = "/*"
-  to = "./functions/take-screenshot"
-  status = 200
+# [[redirects]]
+  # from = "/*"
+  # to = "./functions/take-screenshot"
+  # status = 200
