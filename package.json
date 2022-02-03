@@ -6,13 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+ 
   "dependencies": {
-    "chrome-aws-lambda": "^2.0.0",
-    "puppeteer-core": "^2.0.0"
+    "chrome-aws-lambda": "latest",
+    "puppeteer-core": "latest"
   },
   "devDependencies": {
-    "puppeteer": "^2.0.0"
+    "puppeteer": "latest"
   }
 }
