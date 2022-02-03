@@ -46,6 +46,7 @@ exports.handler = async (event, context) => {
 
    var s = await page.screenshot({ encoding: 'binary' , fullPage: true})
 var sc= Buffer.from(s).toString('base64')//await up(Buffer.from(s).toString('base64'))
+sc = await up(sc)
 console.log(sc)
     await browser.close();
   
