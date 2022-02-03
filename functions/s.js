@@ -11,7 +11,7 @@ var up = async x => {
     }
         
         const formData = new FormData();
-        formData.append("image", image.replace("data:image/jpeg;base64,", '').replace("data:image/png;base64,", ''));
+        formData.append("image", x.replace("data:image/jpeg;base64,", '').replace("data:image/png;base64,", ''));
         return await fetch(`https://api.imgbb.com/1/upload?key=33612f7751537f4f27c5253f56edbf16`, {
             method: "POST",
             body: formData,
@@ -46,8 +46,14 @@ exports.handler = async (event, context) => {
 
    var s = await page.screenshot({ encoding: 'binary' , fullPage: true})
 var sc= Buffer.from(s).toString('base64')//await up(Buffer.from(s).toString('base64'))
-sc = await up(sc)
-console.log(sc)
+ await up(sc)     .then(r => {
+            console.warn(r)
+       
+        })     .catch(r => {
+            console.warn(r)
+       
+        })
+
     await browser.close();
   
     return {
