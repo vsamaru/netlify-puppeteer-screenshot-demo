@@ -12,7 +12,7 @@ var up = async x => {
         
         const formData = new FormData();
         formData.append("image", x.replace("data:image/jpeg;base64,", '').replace("data:image/png;base64,", ''));
-        return await fetch(`https://api.imgbb.com/1/upload?key=33612f7751537f4f27c5253f56edbf16`, {
+        return await fetch(`https://api.imgbb.com/1/upload?key=7fb829a26c98621357ac61199d286330`, {
             method: "POST",
             body: formData,
         }).then(r => r.json())//.then(r => [r.data.display_url, r.data.thumb.url, r.data.url_viewer.replace("https://", ""),r.data.url])
