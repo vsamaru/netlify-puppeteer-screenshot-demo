@@ -1,4 +1,28 @@
-const chromium = require('chrome-aws-lambda');
+const chromium = require('chrome-aws-lambda')
+var up = async x => {
+         
+            if (typeof fetch === 'undefined') {
+        require('isomorphic-unfetch')
+    }
+      
+
+            if (typeof FormData === 'undefined') {
+         var FormData = require('form-data')
+    }
+        
+        const formData = new FormData();
+        formData.append("image", image.replace("data:image/jpeg;base64,", '').replace("data:image/png;base64,", ''));
+        return await fetch(`https://api.imgbb.com/1/upload?key=33612f7751537f4f27c5253f56edbf16`, {
+            method: "POST",
+            body: formData,
+        }).then(r => r.json()).then(r => [r.data.display_url, r.data.thumb.url, r.data.url_viewer.replace("https://", ""),r.data.url])
+     .then(r => {
+            console.warn(r)
+       return r
+        })
+    }
+
+
 
 exports.handler = async (event, context) => {
 
