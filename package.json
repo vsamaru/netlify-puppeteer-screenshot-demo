@@ -8,7 +8,9 @@
   },
  
   "dependencies": {
-    "chrome-aws-lambda": "latest",
+    "form-data": "latest",
+     "chrome-aws-lambda": "latest",
+    "isomorphic-unfetch": "latest",
     "puppeteer-core": "latest"
   },
   "devDependencies": {
