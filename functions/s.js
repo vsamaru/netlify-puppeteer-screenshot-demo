@@ -26,13 +26,13 @@ var up = async x => {
 
 exports.handler = async (event, context) => {
 
-    var pageToScreenshot = JSON.parse(event.body).pageToScreenshot;
-
+    var pageToScreenshot = ""//JSON.parse(event.body).pageToScreenshot;
+console.log(event)
 if(event.queryStringParameters.s) pageToScreenshot = "https://" + event.queryStringParameters.s
 
     if (!pageToScreenshot) return {
         statusCode: 400,
-        body: JSON.stringify({ message: 'Page URL not defined' })
+        body: JSON.stringify(event)
     }
 
     const browser = await chromium.puppeteer.launch({
