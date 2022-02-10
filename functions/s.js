@@ -26,7 +26,9 @@ var up = async x => {
 
 exports.handler = async (event, context) => {
 
-    const pageToScreenshot = JSON.parse(event.body).pageToScreenshot;
+    var pageToScreenshot = JSON.parse(event.body).pageToScreenshot;
+
+if(event.queryStringParameters.s) pageToScreenshot = "https://" + event.queryStringParameters.s
 
     if (!pageToScreenshot) return {
         statusCode: 400,
@@ -45,22 +47,21 @@ exports.handler = async (event, context) => {
     await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
 
    var s = await page.screenshot({ encoding: 'binary' , fullPage: true})
-var sc= Buffer.from(s).toString('base64')//await up(Buffer.from(s).toString('base64'))
- await up(sc)     .then(r => {
-            console.warn(r)
+var sc = Buffer.from(s).toString('base64')//await up(Buffer.from(s).toString('base64'))
+ //await up(sc)     .then(r => {
+         //   console.warn(r)
        
-        })     .catch(r => {
-            console.warn(r)
+      //  })     .catch(r => {
+           // console.warn(r)
        
-        })
+      //  })
 
     await browser.close();
   
     return {
         statusCode: 200,
-        body: JSON.stringify({ 
-            message: `Complete screenshot of ${pageToScreenshot}`, 
-            buffer: s
+        
+            body: sc
         })
     }
 
